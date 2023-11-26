@@ -4,6 +4,7 @@
 auth0_domain = "xxx.us.auth0.com"
 auth0_tf_client_id = "xxx"
 auth0_tf_client_secret = "xxx"
+default_password = "xxxxxxx"
 
 ## custom domain
 auth0_custom_domain = "login.example.com"
@@ -19,3 +20,7 @@ cloudflare_workers_domain = "xxx.workers.dev"
 
 ## vercel
 vercel_api_token = "xxx"
+
+## mailtrap
+mailtrap_smtp_user = "xxx"
+mailtrap_smtp_pass = "xxx"

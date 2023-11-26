@@ -57,10 +57,25 @@ variable "auth0_cname_api_key" {
   description = "Auth0 custom domain cname-api-key"
   sensitive = true
 }
+variable "default_password" {
+  type = string
+  description = "password for test users"
+  sensitive = true
+}
 
 ## vercel
 variable "vercel_api_token" {
   type = string
   description = "vercel token"
+  sensitive = true
+}
+
+## mailtrap
+variable "mailtrap_smtp_user" {
+  type = string
+}
+
+variable "mailtrap_smtp_pass" {
+  type = string
   sensitive = true
 }
