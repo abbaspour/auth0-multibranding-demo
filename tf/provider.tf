@@ -6,19 +6,19 @@ terraform {
     }
     auth0 = {
       source  = "auth0/auth0"
-      version = "1.1.0"
+      version = "~> 1.1"
     }
     vercel = {
       source  = "vercel/vercel"
-      version = "0.16.0"
+      version = "~> 1.0"
     }
     local = {
       source = "hashicorp/local"
-      version = "2.4.0"
+      version = "~> 2.4"
     }
     external = {
       source = "hashicorp/external"
-      version = "2.3.2"
+      version = "~> 2.3"
     }
   }
 }

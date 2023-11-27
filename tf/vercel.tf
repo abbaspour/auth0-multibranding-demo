@@ -18,7 +18,6 @@ resource "vercel_deployment" "css_deployment" {
 ## brand A app
 resource "vercel_project" "brand_a" {
   name      = "brand-a"
-  framework = "create-react-app"
 }
 
 data "vercel_project_directory" "brand_a_build" {
@@ -36,7 +35,6 @@ resource "vercel_deployment" "brand_a_deployment" {
 ## brand B app
 resource "vercel_project" "brand_b" {
   name      = "brand-b"
-  framework = "vue"
 }
 
 data "vercel_project_directory" "brand_b_build" {

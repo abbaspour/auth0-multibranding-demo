@@ -39,6 +39,10 @@ resource "auth0_client" "brand_a" {
     "https://${local.brand_a_domain}"
   ]
 
+  allowed_logout_urls = [
+    "https://${local.brand_a_domain}"
+  ]
+
   jwt_configuration {
     alg = "RS256"
   }
@@ -53,6 +57,10 @@ resource "auth0_client" "brand_b" {
 
   callbacks = [
     "https://jwt.io",
+    "https://${local.brand_b_domain}"
+  ]
+
+  allowed_logout_urls = [
     "https://${local.brand_b_domain}"
   ]
 
