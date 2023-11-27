@@ -1,3 +1,9 @@
+locals {
+  auth0_custom_domain = "${var.auth0_custom_subdomain}.${var.demo_tld}"
+  brand_a_domain = "${var.brand_a_subdomain}.${var.demo_tld}"
+  brand_b_domain = "${var.brand_b_subdomain}.${var.demo_tld}"
+}
+
 resource "auth0_tenant" "tenant_config" {
   friendly_name = "Multi Branding Demo"
   default_redirection_uri = "https://${vercel_project.hosting.name}.vercel.app"
@@ -29,7 +35,8 @@ resource "auth0_client" "brand_a" {
   is_first_party = true
 
   callbacks = [
-    "https://jwt.io"
+    "https://jwt.io",
+    "https://${local.brand_a_domain}"
   ]
 
   jwt_configuration {
@@ -45,7 +52,8 @@ resource "auth0_client" "brand_b" {
   is_first_party = true
 
   callbacks = [
-    "https://jwt.io"
+    "https://jwt.io",
+    "https://${local.brand_b_domain}"
   ]
 
   jwt_configuration {

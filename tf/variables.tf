@@ -1,3 +1,9 @@
+## domain
+variable "demo_tld" {
+  type = string
+  description = "demo domain"
+}
+
 ## cloudflare
 variable "cloudflare_email" {
   type = string
@@ -31,9 +37,9 @@ variable "auth0_domain" {
   description = "Auth0 Domain"
 }
 
-variable "auth0_custom_domain" {
+variable "auth0_custom_subdomain" {
   type = string
-  description = "Auth0 custom domain name"
+  description = "Auth0 custom subdomain name"
 }
 
 variable "auth0_tf_client_id" {
@@ -68,6 +74,16 @@ variable "vercel_api_token" {
   type = string
   description = "vercel token"
   sensitive = true
+}
+
+variable "brand_a_subdomain" {
+  type = string
+  default = "a"
+}
+
+variable "brand_b_subdomain" {
+  type = string
+  default = "b"
 }
 
 ## mailtrap
