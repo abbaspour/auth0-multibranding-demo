@@ -140,7 +140,7 @@
 
         let triggerCaptcha = null;
         const webAuth = new auth0.WebAuth(params);
-        const databaseConnection = config.connection;
+        const databaseConnection = config.connection || 'Users';
         const captcha = webAuth.renderCaptcha(
             document.querySelector('.captcha-container'),
             null,
