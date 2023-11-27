@@ -75,15 +75,28 @@ resource "auth0_pages" "cul_pages" {
 resource "auth0_user" "user_1" {
   depends_on = [auth0_connection_clients.brands_central_user_store]
   connection_name = auth0_connection.users.name
-  email = "user1@example.com"
-  password = "user1@example.com"
+  email = "user1@atko.email"
+  password = var.default_password
 }
 
 resource "auth0_user" "user_2" {
   depends_on = [auth0_connection_clients.brands_central_user_store]
   connection_name = auth0_connection.users.name
-  email = "user2@example.com"
-  password = "user2@example.com"
+  email = "user2@atko.email"
+  password = var.default_password
+}
+
+## Email Server
+resource "auth0_email_provider" "mailtrap_provider" {
+  name = "smtp"
+  enabled = true
+  default_from_address = "noreply@multibrand.app"
+  credentials {
+    smtp_host = "sandbox.smtp.mailtrap.io"
+    smtp_port = 2525
+    smtp_user = var.mailtrap_smtp_user
+    smtp_pass = var.mailtrap_smtp_pass
+  }
 }
 
 ## outputs
