@@ -31,6 +31,17 @@ resource "vercel_deployment" "brand_a_deployment" {
   production  = true
 }
 
+resource "local_file" "brand_a_config" {
+  content  = <<EOF
+{
+  "domain": "${local.auth0_custom_domain}",
+  "clientId": "${auth0_client.brand_a.client_id}",
+  "audience": ""
+}
+EOF
+  filename = "../apps/brand-a/src/auth_config.json"
+}
+
 
 ## brand B app
 resource "vercel_project" "brand_b" {
@@ -47,3 +58,14 @@ resource "vercel_deployment" "brand_b_deployment" {
   path_prefix = data.vercel_project_directory.brand_b_build.path
   production  = true
 }
+
+resource "local_file" "brand_b_config" {
+  content  = <<EOF
+{
+  "domain": "${local.auth0_custom_domain}",
+  "clientId": "${auth0_client.brand_b.client_id}"
+}
+EOF
+  filename = "../apps/brand-b/auth_config.json"
+}
+
